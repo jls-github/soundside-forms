@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import GeneralGuestForm from "./GeneralGuestForm";
+import GeneralMemberForm from "./GeneralMemberForm";
 import GuestToggle from "./GuestToggle";
 
 export default function GeneralForm() {
@@ -9,9 +11,9 @@ export default function GeneralForm() {
       <GuestToggle isGuest={isGuest} setIsGuest={setIsGuest} />
       {isGuest !== null ? (
         isGuest ? (
-          <div>Guest Form</div>
+          <GeneralGuestForm />
         ) : (
-          <div>Member Form</div>
+          <GeneralMemberForm />
         )
       ) : null}
     </div>
