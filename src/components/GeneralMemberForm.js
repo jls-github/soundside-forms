@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import useForms from "../hooks/useForms";
 import FormWrapper from "./FormWrapper";
 import SubmitButton from "./SubmitButton";
 
@@ -7,18 +8,7 @@ const initialFormData = {
 };
 
 export default function GeneralMemberForm() {
-  const [formData, setFormData] = useState(initialFormData);
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    console.log(formData);
-  }
-
-  function handleChange(e) {
-    const newFormData = { ...formData };
-    newFormData[e.target.name] = e.target.value;
-    setFormData(newFormData);
-  }
+  const { handleChange, handleSubmit, formData } = useForms(initialFormData);
 
   return (
     <FormWrapper>
@@ -31,6 +21,7 @@ export default function GeneralMemberForm() {
           type="number"
           name="gospel_conversations"
           onChange={handleChange}
+          value={formData["gospel_conversations"]}
         />
         <br />
         <SubmitButton />
