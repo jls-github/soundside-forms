@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import FormWrapper from "./FormWrapper";
+import SubmitButton from "./SubmitButton";
 
 const initialFormData = {
   referral_source: "",
@@ -10,7 +11,7 @@ export default function GeneralGuestForm() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(e.target.value);
+    console.log(formData);
   }
 
   function handleChange(e) {
@@ -30,7 +31,7 @@ export default function GeneralGuestForm() {
           name="referral_source"
         />
         <br />
-        <button type="submit">Submit</button>
+        <SubmitButton />
       </form>
     </FormWrapper>
   );

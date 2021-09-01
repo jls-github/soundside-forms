@@ -1,16 +1,17 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import FormWrapper from "./FormWrapper";
+import SubmitButton from "./SubmitButton";
 
 const initialFormData = {
-    "gospel_conversations": ""
-}
+  gospel_conversations: "",
+};
 
 export default function GeneralMemberForm() {
   const [formData, setFormData] = useState(initialFormData);
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(e.target.value);
+    console.log(formData);
   }
 
   function handleChange(e) {
@@ -26,8 +27,13 @@ export default function GeneralMemberForm() {
           How many gospel conversations did you have this week?
         </label>
         <br />
-        <input type="number" name="gospel_conversations" handleChange={handleChange}/><br />
-        <button type="submit">Submit</button>
+        <input
+          type="number"
+          name="gospel_conversations"
+          onChange={handleChange}
+        />
+        <br />
+        <SubmitButton />
       </form>
     </FormWrapper>
   );
