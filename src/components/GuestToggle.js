@@ -1,20 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 
+const GuestToggleHeader = styled.h3`
+  text-align: center;
+`;
+
+const ToggleInputs = styled.div`
+  text-align: center;
+`;
+
+const GuestToggleContainer = styled.div`
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+`;
+
 export default function GuestToggle({ isGuest, setIsGuest }) {
-  const GuestToggleHeader = styled.h3`
-    text-align: center;
-  `;
-
-  const ToggleInputs = styled.div`
-    text-align: center;
-  `
-
-  const GuestToggleContainer = styled.div`
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-  `
-
   return (
     <GuestToggleContainer>
       <GuestToggleHeader>Are you a guest with us today?</GuestToggleHeader>

@@ -1,18 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 
+const HeaderDiv = styled.header`
+  background: green;
+  height: 2rem;
+  display: flex;
+  place-content: center;
+  place-items: center;
+`;
 export default function Header() {
-  const Header = styled.header`
-    background: green;
-    height: 2rem;
-    display: flex;
-    place-content: center;
-    place-items: center;
-  `;
-
   return (
-    <Header>
+    <HeaderDiv>
       <div>Soundside Forms</div>
-    </Header>
+    </HeaderDiv>
   );
 }
