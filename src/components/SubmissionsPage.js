@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { CSVLink } from "react-csv";
+
 import { SUBMISSIONS_URL } from "../constraints";
 
 export default function SubmissionsPage() {
@@ -7,13 +9,39 @@ export default function SubmissionsPage() {
   useEffect(() => {
     fetch(SUBMISSIONS_URL)
       .then((res) => res.json())
-      .then(json => {setSubmissions(json.submissions)});
+      .then((json) => {
+        const data = cleanSubmissions(json);
+        setSubmissions(data);
+      });
   }, []);
+
+  function cleanSubmissions(json) {
+    const rawSubmissions = json.submissions;
+    const submissionDates = Object.keys(rawSubmissions);
+    submissionDates.forEach((submissionDate) => {
+      rawSubmissions[submissionDate] = rawSubmissions[submissionDate].map(
+        (submissionsString, idx) => {
+          return [idx].concat(
+            submissionsString.split(",").map((entry) => {
+              return entry.trim();
+            })
+          );
+        }
+      );
+    });
+    return rawSubmissions;
+  }
+
+  useEffect(() => {
+    console.log(submissions);
+  }, [submissions]);
 
   function populateSubmissions() {
     const submissionDates = Object.keys(submissions);
-    return submissionDates.map((submissionDate) => {
-      return <div>{submissions[submissionDate]}</div>;
+    return submissionDates.map((submissionDate, idx) => {
+      return (
+        <CSVLink key={`submission-date-${idx}`} data={submissions[submissionDate]}>{submissionDate}</CSVLink>
+      );
     });
   }
 
