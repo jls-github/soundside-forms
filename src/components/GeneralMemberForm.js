@@ -17,6 +17,7 @@ export default function GeneralMemberForm() {
           How many gospel conversations did you have this week?
         </label>
         <br />
+        <br />
         <input
           type="number"
           name="gospel_conversations"
