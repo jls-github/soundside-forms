@@ -5,7 +5,7 @@ import SubmitButton from "./SubmitButton";
 
 const initialFormData = {
   referral_source: "",
-  tithe: "",
+  tithe: "Yes",
   sermon_length: ""
 };
 
