@@ -1,12 +1,13 @@
 import { useState } from "react";
-import { FORMS_URL } from "../constraints";
+import { SUBMISSIONS_URL } from "../constraints";
 
 export default function useForms(initialFormData) {
   const [formData, setFormData] = useState(initialFormData);
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch(FORMS_URL, {
+    console.log(_formDataToCSV())
+    fetch(SUBMISSIONS_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -18,7 +19,7 @@ export default function useForms(initialFormData) {
   
   function _formDataToCSV() {
     const values = Object.values(formData)
-    return values.join(", ")
+    return {"csv_data": values.join(", ")}
   }
 
   function handleChange(e) {
