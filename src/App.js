@@ -1,6 +1,7 @@
 import GeneralForm from "./components/GeneralForm";
 import Header from "./components/Header";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import SubmissionsPage from "./components/SubmissionsPage";
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
             <GeneralForm />
           </Route>
           <Route exact path="/submissions">
-            <div>Submissions Page</div>
+            <SubmissionsPage />
           </Route>
           <Route path="*">
             <div>No form found at this url</div>
