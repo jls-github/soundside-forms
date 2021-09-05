@@ -9,7 +9,7 @@ function App() {
       <Header />
       <Router>
         <Switch>
-          <Route exact path="/general">
+          <Route exact path="/forms/general">
             <GeneralForm />
           </Route>
           <Route exact path="/submissions">

@@ -7,7 +7,7 @@ The backend may be found here: https://github.com/jls-github/soundside-forms-bac
 # Roadmap
 
 - Phase one: Forms are hard-coded on the frontend and organized into CSV files for the administrators to access.
-- Phase two: Forms are fetched from a CMS that the adminstrator can access. This may or may not be a part of this app. TBD.
+- Phase two: Forms are fetched from a CMS that the adminstrator can access. This may or may not be a part of this app (TBD). QR Codes should be generated upon form creation. Forms should be fetched by based on url parameters.
 
 # TODO's
 
@@ -15,6 +15,7 @@ The backend may be found here: https://github.com/jls-github/soundside-forms-bac
 
 - [ ] Create general forms from outline
 - [ ] Style app professionally
+- [ ] Add browser icons
 
 # Technologies
 
