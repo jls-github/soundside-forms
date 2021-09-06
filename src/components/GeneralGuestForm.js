@@ -10,7 +10,7 @@ const initialFormData = {
 };
 
 export default function GeneralGuestForm() {
-  const { handleChange, handleSubmit, formData } = useForms(initialFormData);
+  const { handleChange, handleSubmit, formData } = useForms(initialFormData, true);
 
   return (
     <FormWrapper>
