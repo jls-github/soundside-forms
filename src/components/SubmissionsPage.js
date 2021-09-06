@@ -1,7 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { CSVLink } from "react-csv";
+import styled from "styled-components";
 
 import { SUBMISSIONS_URL } from "../constraints";
+
+const SubmissionsHeader = styled.h2`
+  text-align: center;
+`;
+
+const SubmissionsWrapper = styled.div`
+  margin: 1rem;
+`;
 
 export default function SubmissionsPage() {
   const [submissions, setSubmissions] = useState(null);
@@ -54,5 +63,10 @@ export default function SubmissionsPage() {
     });
   }
 
-  return <div>{submissions ? populateSubmissions() : "loading..."}</div>;
+  return (
+    <SubmissionsWrapper>
+      <SubmissionsHeader>Submissions</SubmissionsHeader>
+      {submissions ? populateSubmissions() : "loading..."}
+    </SubmissionsWrapper>
+  );
 }
