@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { SUBMISSIONS_URL } from "../constraints";
+import { useHistory } from "react-router-dom";
 
 export default function useForms(initialFormData, guest) {
+  const history = useHistory();
+
   const [formData, setFormData] = useState(initialFormData);
 
   function handleSubmit(e) {
@@ -14,6 +17,12 @@ export default function useForms(initialFormData, guest) {
         Accept: "application/json",
       },
       body: JSON.stringify(_formDataToCSV()),
+    }).then((res) => {
+      if (res.ok) {
+        history.push("/submission-success");
+      } else {
+        history.push("/submission-failure");
+      }
     });
   }
 

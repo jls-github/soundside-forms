@@ -2,6 +2,8 @@ import Header from "./components/Header";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import SubmissionsPage from "./components/SubmissionsPage";
 import FormRouteContainer from "./routeContainers/FormRouteContainer";
+import SubmissionSuccess from "./components/SubmissionSuccess";
+import SubmissionFailure from "./components/SubmissionFailure";
 
 function App() {
   return (
@@ -11,6 +13,12 @@ function App() {
         <Switch>
           <Route exact path="/forms/:formName">
             <FormRouteContainer />
+          </Route>
+          <Route exact path="/submission-success">
+            <SubmissionSuccess />
+          </Route>
+          <Route exact path="/submission-failure">
+            <SubmissionFailure />
           </Route>
           <Route exact path="/submissions">
             <SubmissionsPage />
