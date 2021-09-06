@@ -27,14 +27,18 @@ export default function useForms(initialFormData, guest) {
   }
 
   function _formDataToCSV() {
-    const values = Object.values(formData);
+    const values = [];
+    for (const input in formData) {
+      values.push(formData[input].value);
+    }
     // guest form is hard coded to 1 for now
     return { csv_data: values.join(", "), form_id: guest ? 1 : 2 };
   }
 
   function handleChange(e) {
-    const newFormData = { ...formData };
-    newFormData[e.target.name] = e.target.value;
+    const currentInput = { ...formData[e.target.name] };
+    currentInput.value = e.target.value;
+    const newFormData = { ...formData, [e.target.name]: currentInput };
     setFormData(newFormData);
   }
 

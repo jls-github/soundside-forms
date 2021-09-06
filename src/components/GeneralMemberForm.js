@@ -1,10 +1,16 @@
 import React from "react";
 import useForms from "../hooks/useForms";
+import FormInput from "./FormInput";
 import FormWrapper from "./FormWrapper";
 import SubmitButton from "./SubmitButton";
 
 const initialFormData = {
-  gospel_conversations: "",
+  gospel_conversations: {
+    labelText: "How many gospel conversations did you have this week?",
+    name: "gospel_conversations",
+    type: "text",
+    value: "",
+  },
 };
 
 export default function GeneralMemberForm() {
@@ -16,18 +22,20 @@ export default function GeneralMemberForm() {
   return (
     <FormWrapper>
       <form onSubmit={handleSubmit}>
-        <label for="gospel_conversations">
-          How many gospel conversations did you have this week?
-        </label>
-        <br />
-        <br />
-        <input
-          type="number"
-          name="gospel_conversations"
-          onChange={handleChange}
-          value={formData["gospel_conversations"]}
-        />
-        <br />
+        {Object.keys(formData).map((key) => {
+          const formInput = formData[key];
+          return (
+            <FormInput
+              labelText={formInput.labelText}
+              name={formInput.name}
+              onChange={handleChange}
+              value={formInput.value}
+              type={formInput.type}
+              selectOptions={formInput.selectOptions}
+              key={formInput.name}
+            />
+          );
+        })}
         <SubmitButton />
       </form>
     </FormWrapper>
