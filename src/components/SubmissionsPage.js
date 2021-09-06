@@ -40,7 +40,16 @@ export default function SubmissionsPage() {
     const submissionDates = Object.keys(submissions);
     return submissionDates.map((submissionDate, idx) => {
       return (
-        <CSVLink filename={`Soundside Submissions ${submissionDate}`} key={`submission-date-${idx}`} data={submissions[submissionDate]}>{submissionDate}</CSVLink>
+        <>
+          <CSVLink
+            filename={`Soundside Submissions ${submissionDate}`}
+            key={`submission-date-${idx}`}
+            data={submissions[submissionDate]}
+          >
+            {submissionDate}
+          </CSVLink>{" "}
+          <br />
+        </>
       );
     });
   }
