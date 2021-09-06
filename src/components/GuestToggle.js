@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-const GuestToggleHeader = styled.h3`
+const GuestToggleHeader = styled.h4`
   text-align: center;
+  margin-bottom: 0;
 `;
 
 const ToggleInputs = styled.div`
@@ -21,22 +22,27 @@ export default function GuestToggle({ isGuest, setIsGuest }) {
       <ToggleInputs>
         <input
           checked={isGuest === true}
-          onClick={() => setIsGuest(true)}
+          onChange={() => setIsGuest(true)}
           type="radio"
           id={true}
           name="is-guest"
           value="Guest"
         />
-        <label for="is-guest">Guest</label>
+        <label onClick={() => setIsGuest(true)} htmlFor="is-guest">
+          Guest
+        </label>
+        <br />
         <input
           checked={isGuest === false}
-          onClick={() => setIsGuest(false)}
+          onChange={() => setIsGuest(false)}
           type="radio"
           id={false}
           name="is-guest"
           value="Member"
         />
-        <label for="is-guest">Member</label>
+        <label onClick={() => setIsGuest(false)} htmlFor="is-guest">
+          Regular Attender
+        </label>
       </ToggleInputs>
     </GuestToggleContainer>
   );

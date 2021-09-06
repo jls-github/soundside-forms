@@ -2,19 +2,20 @@ import React from "react";
 import styled from "styled-components";
 
 const Input = styled.input`
-  margin-top: 1rem;
   margin-bottom: 1rem;
 `;
 
 const Select = styled.select`
-  margin-top: 1rem;
   margin-bottom: 1rem;
 `;
 
 const TextArea = styled.textarea`
-  margin-top: 1rem;
   margin-bottom: 1rem;
 `;
+
+const Label = styled.label`
+  display: block;
+`
 
 export default function FormInput({
   labelText,
@@ -26,8 +27,7 @@ export default function FormInput({
 }) {
   return (
     <>
-      <label htmlFor={name}>{labelText}</label>
-      <br />
+      <Label htmlFor={name}>{labelText}</Label>
       {type === "textarea" ? (
         <TextArea name={name} value={value} onChange={onChange} />
       ) : type === "select" ? (
