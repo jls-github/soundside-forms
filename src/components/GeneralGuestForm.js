@@ -5,25 +5,48 @@ import FormWrapper from "./FormWrapper";
 import SubmitButton from "./SubmitButton";
 
 const initialFormData = {
-  referral_source: {
-    labelText: "How did you hear about us?",
-    name: "referral_source",
+  guest_name: {
+    labelText: "Name",
+    name: "guest_name",
     type: "text",
+    value: ""
+  },
+  guest_email: {
+    labelText: "Email",
+    name: "guest_email",
+    type: "email",
+    value: ""
+  },
+  preferred_contact: {
+    labelText: "Preferred Contact",
+    name: "preferred_contact",
+    type: "text",
+    value: ""
+  },
+  pastor: {
+    labelText: "I want to talk to a pastor",
+    name: "pastor",
+    type: "checkbox",
+    value: false,
+  },
+  prayer: {
+    labelText: "I have a prayer request",
+    name: "prayer",
+    type: "checkbox",
+    value: false,
+  },
+  follow: {
+    labelText: "I want to know more about following Christ",
+    name: "follow",
+    type: "checkbox",
+    value: false,
+  },
+  explain: {
+    labelText: "Would you like us to know anything else?",
+    name: "explain",
+    type: "textarea",
     value: "",
-  },
-  tithe: {
-    labelText: "Did you tithe today?",
-    name: "tithe",
-    type: "select",
-    value: "Yes",
-    selectOptions: ["Yes", "I am a bad person"],
-  },
-  sermon_length: {
-    labelText: "How long was Aaron's sermon today?",
-    name: "sermon_length",
-    type: "number",
-    value: 0,
-  },
+  }
 };
 
 export default function GeneralGuestForm() {

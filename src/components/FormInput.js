@@ -36,6 +36,8 @@ export default function FormInput({
             <option key={optionText}>{optionText}</option>
           ))}
         </Select>
+      ) : type === "checkbox" ? (
+        <Input name={name} checked={value} onChange={onChange} type={type} />
       ) : (
         <Input name={name} value={value} onChange={onChange} type={type} />
       )}

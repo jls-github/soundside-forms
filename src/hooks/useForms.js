@@ -37,7 +37,11 @@ export default function useForms(initialFormData, guest) {
 
   function handleChange(e) {
     const currentInput = { ...formData[e.target.name] };
-    currentInput.value = e.target.value;
+    if (currentInput.type === "checkbox") {
+      currentInput.value = !currentInput.value;
+    } else {
+      currentInput.value = e.target.value;
+    }
     const newFormData = { ...formData, [e.target.name]: currentInput };
     setFormData(newFormData);
   }
