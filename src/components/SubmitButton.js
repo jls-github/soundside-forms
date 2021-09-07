@@ -7,10 +7,19 @@ const SubmitButtonWrapper = styled.div`
   margin-bottom: 1rem;
 `
 
+const Button = styled.button`
+  width: 6rem;
+  height: 2rem;
+  border-radius: 0%;
+  background-color: #3a5174;
+  font-weight: bold;
+  color: white;
+`
+
 export default function SubmitButton() {
     return (
         <SubmitButtonWrapper>
-            <button type="submit">Submit</button>
+            <Button type="submit">Submit</Button>
         </SubmitButtonWrapper>
     )
 }
