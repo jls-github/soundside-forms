@@ -15,7 +15,7 @@ const TextArea = styled.textarea`
 
 const Label = styled.label`
   display: block;
-`
+`;
 
 export default function FormInput({
   labelText,
@@ -33,7 +33,7 @@ export default function FormInput({
       ) : type === "select" ? (
         <Select name={name} value={value} onChange={onChange}>
           {selectOptions.map((optionText) => (
-            <option>{optionText}</option>
+            <option key={optionText}>{optionText}</option>
           ))}
         </Select>
       ) : (
