@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 const GuestToggleHeader = styled.h4`
   text-align: center;
-  margin-bottom: 0;
 `;
 
 const ToggleInputs = styled.div`
@@ -16,33 +15,21 @@ const GuestToggleContainer = styled.div`
 `;
 
 export default function GuestToggle({ isGuest, setIsGuest }) {
+  function handleChange(e) {
+    setIsGuest(e.target.value);
+  }
+
   return (
     <GuestToggleContainer>
       <GuestToggleHeader>Are you a guest with us today?</GuestToggleHeader>
       <ToggleInputs>
-        <input
-          checked={isGuest === true}
-          onChange={() => setIsGuest(true)}
-          type="radio"
-          id={true}
-          name="is-guest"
-          value="Guest"
-        />
-        <label onClick={() => setIsGuest(true)} htmlFor="is-guest">
-          Guest
-        </label>
-        <br />
-        <input
-          checked={isGuest === false}
-          onChange={() => setIsGuest(false)}
-          type="radio"
-          id={false}
-          name="is-guest"
-          value="Member"
-        />
-        <label onClick={() => setIsGuest(false)} htmlFor="is-guest">
-          Regular Attender
-        </label>
+        <select value={isGuest} onChange={handleChange}>
+          <option value="Please select an option">
+            Please select an option
+          </option>
+          <option value={"guest"}>Guest</option>
+          <option value={"member"}>Regular Attender</option>
+        </select>
       </ToggleInputs>
     </GuestToggleContainer>
   );
