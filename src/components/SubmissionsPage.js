@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { Redirect, useLocation } from "react-router-dom";
 import { CSVLink } from "react-csv";
 import styled from "styled-components";
-
-import { SUBMISSIONS_URL } from "../constraints";
 
 const SubmissionsHeader = styled.h2`
   text-align: center;
@@ -13,37 +12,9 @@ const SubmissionsWrapper = styled.div`
 `;
 
 export default function SubmissionsPage() {
-  const [submissions, setSubmissions] = useState(null);
+  const location = useLocation();
 
-  useEffect(() => {
-    fetch(SUBMISSIONS_URL)
-      .then((res) => res.json())
-      .then((json) => {
-        const data = cleanSubmissions(json);
-        setSubmissions(data);
-      });
-  }, []);
-
-  function cleanSubmissions(json) {
-    const rawSubmissions = json.submissions;
-    const submissionDates = Object.keys(rawSubmissions);
-    submissionDates.forEach((submissionDate) => {
-      rawSubmissions[submissionDate] = rawSubmissions[submissionDate].map(
-        (submissionsString, idx) => {
-          return [idx].concat(
-            submissionsString.split(",SPLIT,").map((entry) => {
-              return entry.trim();
-            })
-          );
-        }
-      );
-    });
-    return rawSubmissions;
-  }
-
-  useEffect(() => {
-    console.log(submissions);
-  }, [submissions]);
+  const submissions = location?.state?.submissions
 
   function populateSubmissions() {
     const submissionDates = Object.keys(submissions);
@@ -66,7 +37,13 @@ export default function SubmissionsPage() {
   return (
     <SubmissionsWrapper>
       <SubmissionsHeader>Submissions</SubmissionsHeader>
-      {submissions ? populateSubmissions() : "loading..."}
+      {!submissions ? (
+        <Redirect to="/submissions-login" />
+      ) : Object.keys(submissions).length === 0 ? (
+        <div>No Submissions Found</div>
+      ) : (
+        populateSubmissions()
+      )}
     </SubmissionsWrapper>
   );
 }

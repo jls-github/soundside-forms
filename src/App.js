@@ -4,6 +4,7 @@ import SubmissionsPage from "./components/SubmissionsPage";
 import FormRouteContainer from "./routeContainers/FormRouteContainer";
 import SubmissionSuccess from "./components/SubmissionSuccess";
 import SubmissionFailure from "./components/SubmissionFailure";
+import SubmissionsLogin from "./components/SubmissionsLogin";
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
         <Switch>
           <Route exact path="/forms/:formName">
             <FormRouteContainer />
+          </Route>
+          <Route exact path="/submissions-login">
+            <SubmissionsLogin />
           </Route>
           <Route exact path="/submission-success">
             <SubmissionSuccess />
