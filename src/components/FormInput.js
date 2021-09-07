@@ -25,6 +25,16 @@ export default function FormInput({
   type,
   selectOptions,
 }) {
+  if (type === "checkbox") {
+    return (
+      <>
+        <Input name={name} checked={value} onChange={onChange} type={type} />
+        <label htmlFor={name}>{labelText}</label>
+        <br />
+      </>
+    );
+  }
+
   return (
     <>
       <Label htmlFor={name}>{labelText}</Label>
@@ -36,9 +46,7 @@ export default function FormInput({
             <option key={optionText}>{optionText}</option>
           ))}
         </Select>
-      ) : type === "checkbox" ? (
-        <Input name={name} checked={value} onChange={onChange} type={type} />
-      ) : (
+      ) : type === "checkbox" ? null : (
         <Input name={name} value={value} onChange={onChange} type={type} />
       )}
       <br />
