@@ -11,6 +11,12 @@ const initialFormData = {
     type: "text",
     value: "",
   },
+  prayer: {
+    labelText: "Do you have a prayer request this week?",
+    name: "prayer",
+    type: "textarea",
+    value: ""
+  }
 };
 
 export default function GeneralMemberForm() {
