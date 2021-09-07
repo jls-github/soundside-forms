@@ -31,7 +31,7 @@ export default function SubmissionsPage() {
       rawSubmissions[submissionDate] = rawSubmissions[submissionDate].map(
         (submissionsString, idx) => {
           return [idx].concat(
-            submissionsString.split(",").map((entry) => {
+            submissionsString.split(",SPLIT,").map((entry) => {
               return entry.trim();
             })
           );

@@ -32,7 +32,7 @@ export default function useForms(initialFormData, guest) {
       values.push(formData[input].value);
     }
     // guest form is hard coded to 1 for now
-    return { csv_data: values.join(", "), form_id: guest ? 1 : 2 };
+    return { csv_data: values.join(",SPLIT,"), form_id: guest ? 1 : 2 };
   }
 
   function handleChange(e) {
