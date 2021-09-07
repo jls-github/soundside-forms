@@ -13,11 +13,15 @@ The backend may be found here: https://github.com/jls-github/soundside-forms-bac
 
 ## Phase 1
 
-- [ ] Create general forms from outline
-- [ ] Style app professionally
-- [ ] Add browser icons
+- [ ] Lock admin view behind password
 
-# Technologies
+## Phase 2
+
+- [ ] Create csv column table in backend
+- [ ] Create frontend for cms
+- [ ] Add required fields
+
+# Frontend Technologies
 
 - React
 - React Router
