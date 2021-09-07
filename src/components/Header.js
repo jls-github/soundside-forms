@@ -1,17 +1,21 @@
 import React from "react";
 import styled from "styled-components";
+import Logo from "../images/soundside-logo.png";
 
 const HeaderDiv = styled.header`
   background: green;
   height: 2rem;
-  display: flex;
-  place-content: center;
-  place-items: center;
+  padding: 0.5rem;
 `;
+
+const Img = styled.img`
+  max-height: 90%;
+`;
+
 export default function Header() {
   return (
     <HeaderDiv>
-      <div>Soundside Forms</div>
+      <Img src={Logo} alt="Soundside Church" />
     </HeaderDiv>
   );
 }
