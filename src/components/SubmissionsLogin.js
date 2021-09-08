@@ -2,6 +2,27 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import cleanSubmissions from "../utils/cleanSubmissions";
 import { SUBMISSIONS_URL } from "../constraints";
+import styled from "styled-components";
+
+const P = styled.p`
+  text-align: center;
+`;
+
+const H2 = styled.h2`
+  text-align: center;
+`;
+
+const FormDiv = styled.div`
+  text-align: center;
+  display: flex;
+  justify-content: center
+`;
+
+const Button = styled.button`
+  display: block;
+  width: 100%;
+  margin-top: 0.5rem;
+`;
 
 export default function SubmissionsLogin() {
   const [password, setPassword] = useState("");
@@ -29,7 +50,6 @@ export default function SubmissionsLogin() {
         throw Error(res.statusText);
       })
       .then((json) => {
-        
         const data = cleanSubmissions(json);
         history.push({
           pathname: "/submissions",
@@ -43,15 +63,21 @@ export default function SubmissionsLogin() {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          value={password}
-          onChange={handleChange}
-          type="password"
-          name="password"
-        />
-        <button type="submit">Log In</button>
-      </form>
+      <H2>Submissions Login</H2>
+      <P>Please log in to view submitted forms</P>
+
+      <FormDiv>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="password">Password: </label>
+          <input
+            value={password}
+            onChange={handleChange}
+            type="password"
+            name="password"
+          />
+          <Button type="submit">Log In</Button>
+        </form>
+      </FormDiv>
     </div>
   );
 }
