@@ -19,10 +19,14 @@ const FormDiv = styled.div`
 `;
 
 const Button = styled.button`
-  display: block;
   width: 100%;
   margin-top: 0.5rem;
-`;
+  height: 2rem;
+  border-radius: 0%;
+  background-color: #3a5174;
+  font-weight: bold;
+  color: white;
+`
 
 export default function SubmissionsLogin() {
   const [password, setPassword] = useState("");
