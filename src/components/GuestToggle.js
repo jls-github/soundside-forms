@@ -21,7 +21,7 @@ export default function GuestToggle({ isGuest, setIsGuest }) {
 
   return (
     <GuestToggleContainer>
-      <GuestToggleHeader>Are you a guest with us today?</GuestToggleHeader>
+      <GuestToggleHeader>Thank you for joining us today!</GuestToggleHeader>
       <ToggleInputs>
         <select value={isGuest} onChange={handleChange}>
           <option value="Please select an option">

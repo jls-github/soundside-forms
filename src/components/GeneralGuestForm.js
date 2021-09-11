@@ -42,7 +42,7 @@ const initialFormData = {
     value: false,
   },
   explain: {
-    labelText: "Would you like us to know anything else?",
+    labelText: "Any prayer requests?",
     name: "explain",
     type: "textarea",
     value: "",
