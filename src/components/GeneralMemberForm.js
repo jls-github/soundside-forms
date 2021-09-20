@@ -14,7 +14,7 @@ const initialFormData = {
     value: "",
   },
   prayer: {
-    labelText: "Do you have a prayer request this week?",
+    labelText: "Any prayer requests?",
     name: "prayer",
     type: "textarea",
     value: "",
