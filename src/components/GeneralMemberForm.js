@@ -29,11 +29,11 @@ const SpinnerWrapper = styled.div`
   align-items: center;
 `;
 
-export default function GeneralMemberForm({setIsLoading}) {
+export default function GeneralMemberForm({setIsSubmitting}) {
   const { handleChange, handleSubmit, formData } = useForms(
     initialFormData,
     false,
-    setIsLoading
+    setIsSubmitting
   );
 
   return (

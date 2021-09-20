@@ -15,21 +15,21 @@ const SpinnerWrapper = styled.div`
 
 export default function GeneralForm() {
   const [isGuest, setIsGuest] = useState("Please select an option");
-  const [isLoading, setIsLoading] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   return (
     <div>
-      {isLoading ? (
+      {isSubmitting ? (
         <SpinnerWrapper>
-          <ClipLoader color="#3a5174" loading={isLoading} size={150} />
+          <ClipLoader color="#3a5174" loading={isSubmitting} size={150} />
         </SpinnerWrapper>
       ) : (
         <>
           <GuestToggle isGuest={isGuest} setIsGuest={setIsGuest} />
           {isGuest === "guest" ? (
-            <GeneralGuestForm setIsLoading={setIsLoading} />
+            <GeneralGuestForm setIsSubmitting={setIsSubmitting} />
           ) : isGuest === "member" ? (
-            <GeneralMemberForm setIsLoading={setIsLoading} />
+            <GeneralMemberForm setIsSubmitting={setIsSubmitting} />
           ) : null}
         </>
       )}
