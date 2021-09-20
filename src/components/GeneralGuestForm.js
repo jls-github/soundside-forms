@@ -49,10 +49,11 @@ const initialFormData = {
   }
 };
 
-export default function GeneralGuestForm() {
+export default function GeneralGuestForm({setIsLoading}) {
   const { handleChange, handleSubmit, formData } = useForms(
     initialFormData,
-    true
+    true,
+    setIsLoading
   );
 
   return (

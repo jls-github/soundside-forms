@@ -2,14 +2,14 @@ import { useState } from "react";
 import { SUBMISSIONS_URL } from "../constraints";
 import { useHistory } from "react-router-dom";
 
-export default function useForms(initialFormData, guest) {
+export default function useForms(initialFormData, guest, setIsLoading) {
   const history = useHistory();
 
   const [formData, setFormData] = useState(initialFormData);
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(_formDataToCSV());
+    setIsLoading?.(true)
     fetch(SUBMISSIONS_URL, {
       method: "POST",
       headers: {

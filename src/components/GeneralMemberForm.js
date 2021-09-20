@@ -1,4 +1,6 @@
 import React from "react";
+import { ClipLoader } from "react-spinners";
+import styled from "styled-components";
 import useForms from "../hooks/useForms";
 import FormInput from "./FormInput";
 import FormWrapper from "./FormWrapper";
@@ -15,14 +17,23 @@ const initialFormData = {
     labelText: "Do you have a prayer request this week?",
     name: "prayer",
     type: "textarea",
-    value: ""
-  }
+    value: "",
+  },
 };
 
-export default function GeneralMemberForm() {
+const SpinnerWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export default function GeneralMemberForm({setIsLoading}) {
   const { handleChange, handleSubmit, formData } = useForms(
     initialFormData,
-    false
+    false,
+    setIsLoading
   );
 
   return (
