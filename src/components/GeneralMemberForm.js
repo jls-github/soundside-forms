@@ -1,6 +1,4 @@
 import React from "react";
-import { ClipLoader } from "react-spinners";
-import styled from "styled-components";
 import useForms from "../hooks/useForms";
 import FormInput from "./FormInput";
 import FormWrapper from "./FormWrapper";
@@ -20,14 +18,6 @@ const initialFormData = {
     value: "",
   },
 };
-
-const SpinnerWrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
 
 export default function GeneralMemberForm({setIsSubmitting}) {
   const { handleChange, handleSubmit, formData } = useForms(
