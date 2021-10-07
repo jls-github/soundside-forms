@@ -14,24 +14,24 @@ const SubmissionsWrapper = styled.div`
 export default function SubmissionsPage() {
   const location = useLocation();
 
-  const submissions = location?.state?.submissions
+  const submissions = location?.state?.submissions;
 
   function populateSubmissions() {
+    console.log(submissions);
     const submissionDates = Object.keys(submissions);
-    return submissionDates.map((submissionDate, idx) => {
-      return (
-        <>
-          <CSVLink
-            filename={`Soundside Submissions ${submissionDate}`}
-            key={`submission-date-${idx}`}
-            data={submissions[submissionDate]}
-          >
-            {submissionDate}
-          </CSVLink>{" "}
-          <br />
-        </>
-      );
-    });
+    console.log(submissionDates);
+    return submissionDates.map((submissionDate, idx) => (
+      <>
+        <CSVLink
+          filename={`Soundside Submissions ${submissionDate}.csv`}
+          key={`submission-date-${idx}`}
+          data={submissions[submissionDate]}
+        >
+          {submissionDate}
+        </CSVLink>{" "}
+        <br />
+      </>
+    ));
   }
 
   return (

@@ -11,7 +11,7 @@ export default function useForms(formId, setIsSubmitting) {
     async function fetchForm() {
       const res = await fetch(`${FORMS_URL}/${formId}`);
       const json = await res.json();
-      setFormData(json.inputs);
+      setFormData(json.inputs.map((input) => ({ ...input, value: "" })));
     }
     fetchForm();
   }, [formId]);
@@ -36,12 +36,8 @@ export default function useForms(formId, setIsSubmitting) {
   }
 
   function _formDataToCSV() {
-    const values = [];
-    for (const input in formData) {
-      values.push(formData[input].value);
-    }
-    // guest form is hard coded to 1 for now
-    return { csv_data: values.join(",SPLIT,"), form_id: formId };
+    const values = formData.map((formInput) => formInput.value);
+    return { csv_data: values.join(",SPLIT,"), formId: formId };
   }
 
   function handleChange(e) {
