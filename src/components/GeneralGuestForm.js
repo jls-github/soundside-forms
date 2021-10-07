@@ -1,4 +1,7 @@
-import React from "react";
+import { useEffect } from "react";
+import { ClipLoader } from "react-spinners";
+import styled from "styled-components";
+import { FORMS_URL } from "../constraints";
 import useForms from "../hooks/useForms";
 import FormInput from "./FormInput";
 import FormWrapper from "./FormWrapper";
@@ -9,19 +12,19 @@ const initialFormData = {
     labelText: "Name",
     name: "guest_name",
     type: "text",
-    value: ""
+    value: "",
   },
   guest_email: {
     labelText: "Email",
     name: "guest_email",
     type: "email",
-    value: ""
+    value: "",
   },
   preferred_contact: {
     labelText: "Preferred Contact",
     name: "preferred_contact",
     type: "text",
-    value: ""
+    value: "",
   },
   pastor: {
     labelText: "I want to talk to a pastor",
@@ -46,21 +49,31 @@ const initialFormData = {
     name: "explain",
     type: "textarea",
     value: "",
-  }
+  },
 };
 
-export default function GeneralGuestForm({setIsSubmitting}) {
-  const { handleChange, handleSubmit, formData } = useForms(
-    initialFormData,
-    true,
-    setIsSubmitting
-  );
+const SpinnerWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export default function GeneralGuestForm({ formId, setIsSubmitting }) {
+  const { handleChange, handleSubmit, formData } = useForms(formId, setIsSubmitting);
+
+  if (!formData)
+    return (
+      <SpinnerWrapper>
+        <ClipLoader color="#3a5174" loading={!formData} size={150} />
+      </SpinnerWrapper>
+    );
 
   return (
     <FormWrapper>
       <form onSubmit={handleSubmit}>
-      {Object.keys(formData).map((key) => {
-          const formInput = formData[key];
+        {formData.map((formInput) => {
           return (
             <FormInput
               labelText={formInput.labelText}
