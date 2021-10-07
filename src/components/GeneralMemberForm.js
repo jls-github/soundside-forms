@@ -6,7 +6,7 @@ import SubmitButton from "./SubmitButton";
 
 const initialFormData = {
   gospel_conversations: {
-    labelText: "How many gospel conversations did you have this week?",
+    labelText: "How many gospel conversations did you have this week? A gospel conversation is any conversation that intentionally moves a person one step closer to Jesus.",
     name: "gospel_conversations",
     type: "text",
     value: "",
