@@ -60,7 +60,7 @@ const SpinnerWrapper = styled.div`
   align-items: center;
 `;
 
-export default function GeneralGuestForm({ formId, setIsSubmitting }) {
+export default function FormContainer({ formId, setIsSubmitting }) {
   const { handleChange, handleSubmit, formData } = useForms(formId, setIsSubmitting);
 
   if (!formData)

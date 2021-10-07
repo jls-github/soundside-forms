@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { ClipLoader } from "react-spinners";
 import styled from "styled-components";
-import GeneralGuestForm from "./GeneralGuestForm";
-import GeneralMemberForm from "./GeneralMemberForm";
+import FormContainer from "./FormContainer";
 import GuestToggle from "./GuestToggle";
 
 const SpinnerWrapper = styled.div`
@@ -17,10 +16,6 @@ export default function GeneralForm() {
   const [isGuest, setIsGuest] = useState("Please select an option");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  useEffect(() => {
-    console.log(isGuest);
-  }, [isGuest]);
-
   if (isSubmitting)
     return (
       <SpinnerWrapper>
@@ -32,7 +27,7 @@ export default function GeneralForm() {
     <div>
       <GuestToggle isGuest={isGuest} setIsGuest={setIsGuest} />
       {isGuest === "Please select an option" ? null : (
-        <GeneralGuestForm
+        <FormContainer
           setIsSubmitting={setIsSubmitting}
           formId={isGuest === "guest" ? 1 : 2}
         />
