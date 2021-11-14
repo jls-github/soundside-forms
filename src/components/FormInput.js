@@ -15,6 +15,7 @@ const TextArea = styled.textarea`
 
 const Label = styled.label`
   display: block;
+  white-space: pre;
 `;
 
 export default function FormInput({
