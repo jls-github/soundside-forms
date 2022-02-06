@@ -6,8 +6,8 @@ import SubmitButton from "./SubmitButton";
 
 const initialFormData = {
   gospel_conversations: {
-    labelText: "How often do you read God's Word? 1-2x/week, 3-5x/week, 6-7x/week?",
-    name: "gospel_conversations",
+    labelText: "What is your preferred method of communication? (ie. phone call, email, text, etc.)",
+    name: "communication-method",
     type: "text",
     value: "",
   },
