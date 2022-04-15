@@ -23,9 +23,9 @@ const initialFormData = {
     type: "checkbox",
     value: false,
   },
-  explain: {
-    labelText: "Is there anything you would like us to know?",
-    name: "explain",
+  prayer: {
+    labelText: "How can we pray for you?",
+    name: "prayer",
     type: "textarea",
     value: "",
   }
