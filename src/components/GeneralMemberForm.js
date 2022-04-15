@@ -12,7 +12,7 @@ const initialFormData = {
     value: "",
   },
   prayer: {
-    labelText: "Any prayer requests?",
+    labelText: "How can we pray for you?",
     name: "prayer",
     type: "textarea",
     value: "",
