@@ -17,32 +17,14 @@ const initialFormData = {
     type: "email",
     value: ""
   },
-  preferred_contact: {
-    labelText: "Preferred Contact",
-    name: "preferred_contact",
-    type: "text",
-    value: ""
-  },
-  pastor: {
-    labelText: "I want to talk to a pastor",
-    name: "pastor",
-    type: "checkbox",
-    value: false,
-  },
-  prayer: {
-    labelText: "I have a prayer request",
-    name: "prayer",
-    type: "checkbox",
-    value: false,
-  },
   follow: {
-    labelText: "I want to know more about following Christ",
+    labelText: "I want to learn more about following Jesus",
     name: "follow",
     type: "checkbox",
     value: false,
   },
   explain: {
-    labelText: "Any prayer requests?",
+    labelText: "Is there anything you would like us to know?",
     name: "explain",
     type: "textarea",
     value: "",
