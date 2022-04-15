@@ -5,9 +5,9 @@ import FormWrapper from "./FormWrapper";
 import SubmitButton from "./SubmitButton";
 
 const initialFormData = {
-  gospel_conversations: {
-    labelText: "What is your preferred method of communication? (ie. phone call, email, text, etc.)",
-    name: "communication-method",
+  name: {
+    labelText: "Name",
+    name: "name",
     type: "text",
     value: "",
   },
