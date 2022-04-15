@@ -23,6 +23,18 @@ const initialFormData = {
     type: "checkbox",
     value: false,
   },
+  pastors: {
+    labelText: "I want to speak to a pastor",
+    name: "pastors",
+    type: "checkbox",
+    value: false,
+  },
+  church: {
+    labelText: "I want to learn more about Soundside Church",
+    name: "church",
+    type: "checkbox",
+    value: false,
+  },
   prayer: {
     labelText: "How can we pray for you?",
     name: "prayer",
